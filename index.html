@@ -23,7 +23,7 @@
             padding: 45px 35px;
             border-radius: 30px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(255, 107, 129, 0.5);
-            max-width: 400px;
+            max-width: 420px;
             width: 90%;
             z-index: 10;
             position: relative;
@@ -65,15 +65,21 @@
             margin-top: 20px;
         }
 
+        #cutsceneEmoji {
+            font-size: 60px;
+            margin-bottom: 10px;
+            animation: bounce 0.6s infinite alternate;
+        }
+
         #cutsceneText {
-            font-size: 20px;
+            font-size: 19px;
             color: #302b63;
             font-weight: bold;
-            min-height: 60px;
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeInOut 0.8s infinite alternate;
+            padding: 0 10px;
         }
 
         /* Final Birthday Message */
@@ -101,9 +107,9 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        @keyframes fadeInOut {
-            from { opacity: 0.6; }
-            to { opacity: 1; }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
         }
     </style>
 </head>
@@ -116,9 +122,10 @@
         <!-- The Click Here Button -->
         <button id="surpriseBtn" onclick="startCutscene()">Click Here</button>
 
-        <!-- The Cutscene Sequence -->
+        <!-- The Baking Science Cutscene -->
         <div id="cutscene">
-            <div id="cutsceneText">🎬 Preparing surprise...</div>
+            <div id="cutsceneEmoji">🥣</div>
+            <div id="cutsceneText">Starting the cake laboratory...</div>
         </div>
 
         <!-- The Final Birthday Message -->
@@ -130,36 +137,42 @@
 
     <script>
         function startCutscene() {
-            // Hide the button and show the cutscene area
+            // Hide button, show cutscene
             document.getElementById('surpriseBtn').style.display = 'none';
             document.getElementById('cutscene').style.display = 'block';
 
             const textElem = document.getElementById('cutsceneText');
+            const emojiElem = document.getElementById('cutsceneEmoji');
 
-            // Cinematic Cutscene Timeline
+            // Step-by-step baking science timeline
             setTimeout(() => {
-                textElem.innerHTML = "✨ Gathering all the love...";
-            }, 1200);
-
-            setTimeout(() => {
-                textElem.innerHTML = "🤗 Adding extra hugs and kisses...";
-            }, 2600);
+                emojiElem.innerHTML = "🌾";
+                textElem.innerHTML = "Step 1: Measuring flour, sugar, and organic chemistry binding agents...";
+            }, 1500);
 
             setTimeout(() => {
-                textElem.innerHTML = "🎂 Baking the digital cake...";
-            }, 4000);
+                emojiElem.innerHTML = "🥚";
+                textElem.innerHTML = "Step 2: Emulsifying eggs, butter, and vanilla extract into a smooth batter...";
+            }, 3300);
 
             setTimeout(() => {
-                textElem.innerHTML = "🎉 Ready! Here it comes...";
-            }, 5400);
+                emojiElem.innerHTML = "🔥";
+                textElem.innerHTML = "Step 3: Applying thermal energy in the oven at 350°F (Maillard reaction in progress)...";
+            }, 5200);
 
-            // Hide cutscene and show final message after 6.5 seconds
+            setTimeout(() => {
+                emojiElem.innerHTML = "🍓";
+                textElem.innerHTML = "Step 4: Applying structural buttercream frosting and high-velocity sprinkles...";
+            }, 7100);
+
+            // Hide cutscene and reveal final wish
             setTimeout(() => {
                 document.getElementById('cutscene').style.display = 'none';
                 document.getElementById('message').style.display = 'block';
-            }, 6800);
+            }, 9000);
         }
     </script>
 
 </body>
 </html>
+
