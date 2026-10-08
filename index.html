@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Mom!</title>
+    <title>Happy Birthday Mom! 💖</title>
     <!-- Include Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc531 100%);
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             height: 100vh;
             margin: 0;
             display: flex;
@@ -20,180 +20,190 @@
             position: relative;
         }
 
-        /* Floating Balloons */
-        .balloon {
+        /* Floating Glowing Orbs & Hearts */
+        .orb {
             position: absolute;
-            bottom: -150px;
-            width: 45px;
-            height: 60px;
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            animation: floatUp 5s infinite ease-in;
+            bottom: -100px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 107, 129, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ff6b81, 0 0 30px #ff4757;
+            animation: floatOrb 6s infinite ease-in-out;
             z-index: 1;
         }
-        .balloon:before {
-            content: "";
-            position: absolute;
-            bottom: -12px;
-            left: 20px;
-            width: 2px;
-            height: 15px;
-            background: #888;
-        }
-        .b1 { background: #ff4757; left: 8%; animation-delay: 0s; }
-        .b2 { background: #2ed573; left: 25%; animation-delay: 1.5s; }
-        .b3 { background: #1e90ff; left: 50%; animation-delay: 3s; }
-        .b4 { background: #ffa502; left: 75%; animation-delay: 0.8s; }
-        .b5 { background: #9b59b6; left: 90%; animation-delay: 2.2s; }
+        .o1 { left: 10%; animation-delay: 0s; width: 25px; height: 25px; }
+        .o2 { left: 30%; animation-delay: 1.5s; width: 40px; height: 40px; background: rgba(254, 202, 87, 0.6); box-shadow: 0 0 15px #feca57; }
+        .o3 { left: 55%; animation-delay: 3s; width: 20px; height: 20px; background: rgba(46, 213, 115, 0.6); box-shadow: 0 0 15px #2ed573; }
+        .o4 { left: 80%; animation-delay: 0.8s; width: 35px; height: 35px; background: rgba(112, 161, 255, 0.6); box-shadow: 0 0 15px #70a1ff; }
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+        @keyframes floatOrb {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
         }
 
         /* Main Card */
         .card {
             background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            padding: 45px 35px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(255, 107, 129, 0.5);
             max-width: 400px;
             width: 90%;
             z-index: 10;
             position: relative;
             border: 4px solid #ff6b81;
-            animation: pulseGlow 3s infinite alternate;
+            animation: cardFloat 4s ease-in-out infinite alternate;
         }
 
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(255, 107, 129, 0.5); }
-            100% { box-shadow: 0 0 30px rgba(255, 107, 129, 0.9), 0 0 40px rgba(251, 197, 49, 0.6); }
+        @keyframes cardFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
         }
 
         h1 {
             color: #ff4757;
             margin-bottom: 20px;
             font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .emoji-header {
-            font-size: 45px;
-            margin-bottom: 10px;
-            animation: bounceEmoji 2s infinite alternate;
+            font-size: 50px;
+            margin-bottom: 15px;
+            animation: spinEmoji 3s infinite linear;
+            display: inline-block;
         }
 
-        @keyframes bounceEmoji {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-8px); }
+        @keyframes spinEmoji {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+            100% { transform: rotate(0deg) scale(1); }
         }
 
         button {
-            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            background: linear-gradient(45deg, #ff4757, #ff6b81, #ffa502);
+            background-size: 200% auto;
             color: white;
             border: none;
-            padding: 16px 32px;
-            font-size: 19px;
+            padding: 18px 36px;
+            font-size: 20px;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+            animation: gradientShift 3s infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: left center; }
+            100% { background-position: right center; }
         }
 
         button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.7);
+            transform: scale(1.12);
+            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.9);
         }
 
         #message {
             display: none;
             margin-top: 25px;
-            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
         #message h2 {
             color: #2ed573;
-            font-size: 32px;
+            font-size: 34px;
             margin-bottom: 5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
         #message p {
             color: #57606f;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             margin-top: 10px;
+            background: linear-gradient(45deg, #ff4757, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .sparkles {
-            font-size: 30px;
+            font-size: 32px;
             margin: 10px 0;
+            animation: pulseSparkle 1.5s infinite alternate;
         }
 
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.3); }
-            50% { opacity: 1; transform: scale(1.08); }
-            70% { transform: scale(0.95); }
+        @keyframes pulseSparkle {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.15); opacity: 1; }
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.2); }
+            70% { opacity: 1; transform: scale(1.1); }
             100% { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Balloons Background -->
-    <div class="balloon b1"></div>
-    <div class="balloon b2"></div>
-    <div class="balloon b3"></div>
-    <div class="balloon b4"></div>
-    <div class="balloon b5"></div>
+    <!-- Floating Background Orbs -->
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="orb o4"></div>
 
     <div class="card">
-        <div class="emoji-header">🎉 🎂 💐</div>
-        <h1>Mom's Special Surprise</h1>
+        <div class="emoji-header">💖 🎉 🎂 🌟</div>
+        <h1>Mom's Ultimate Surprise</h1>
         
         <!-- The Click Here Button -->
         <button id="surpriseBtn" onclick="revealMessage()">Click Here</button>
 
         <!-- The Birthday Message -->
         <div id="message">
-            <div class="sparkles">✨ 💖 ✨</div>
+            <div class="sparkles">✨ 👑 ✨</div>
             <h2>Happy Birthday to you Mom!</h2>
             <p>By Ting Xi</p>
-            <div class="sparkles">🎈 🎁 🌟</div>
+            <div class="sparkles">🎈 💐 🥂</div>
         </div>
     </div>
 
     <script>
         function revealMessage() {
-            // Hide the button
+            // Hide the button smoothly
             document.getElementById('surpriseBtn').style.display = 'none';
             // Show the birthday message
             document.getElementById('message').style.display = 'block';
 
-            // Trigger an awesome confetti explosion!
-            confetti({
-                particleCount: 120,
-                spread: 80,
-                origin: { y: 0.6 }
-            });
+            // Massive Grand Finale Fireworks Show
+            var duration = 3 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
 
-            // Trigger a second burst for extra flair
-            setTimeout(() => {
-                confetti({
-                    particleCount: 80,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 }
-                });
-                confetti({
-                    particleCount: 80,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 }
-                });
-            }, 300);
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+                
+                // Launch confetti from multiple random directions
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
         }
     </script>
 
 </body>
 </html>
-
