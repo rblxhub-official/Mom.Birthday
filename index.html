@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mom!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc531 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating Balloons / Background Decorations */
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 50px;
+            height: 65px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: floatUp 6s infinite ease-in;
+            z-index: 1;
+        }
+        .balloon:before {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 22px;
+            width: 2px;
+            height: 15px;
+            background: #888;
+        }
+        .b1 { background: #ff4757; left: 10%; animation-delay: 0s; }
+        .b2 { background: #2ed573; left: 30%; animation-delay: 2s; }
+        .b3 { background: #1e90ff; left: 70%; animation-delay: 1s; }
+        .b4 { background: #ffa502; left: 85%; animation-delay: 3s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+        }
+
+        /* Main Card */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 90%;
+            z-index: 10;
+            position: relative;
+            border: 4px solid #ff6b81;
+        }
+
+        h1 {
+            color: #ff4757;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .emoji-header {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.6);
+        }
+
+        #message {
+            display: none;
+            margin-top: 25px;
+            animation: bounceIn 0.8s ease-in-out;
+        }
+
+        #message h2 {
+            color: #2ed573;
+            font-size: 30px;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        #message p {
+            color: #57606f;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .sparkles {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            70% { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Balloons Background -->
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+
+    <div class="card">
+        <div class="emoji-header">🎉 🎂 💐</div>
+        <h1>Mom's Special Surprise</h1>
+        
+        <!-- The Click Here Button -->
+        <button id="surpriseBtn" onclick="revealMessage()">Click Here</button>
+
+        <!-- The Birthday Message -->
+        <div id="message">
+            <div class="sparkles">✨ 💖 ✨</div>
+            <h2>Happy Birthday to you Mom!</h2>
+            <p>By Ting Xi</p>
+            <div class="sparkles">🎈 🎁 🌟</div>
+        </div>
+    </div>
+
+    <script>
+        function revealMessage() {
+            // Hide the button
+            document.getElementById('surpriseBtn').style.display = 'none';
+            // Show the birthday message
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
